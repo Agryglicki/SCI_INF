@@ -47,6 +47,23 @@ void sortowanie::wstawianie()
 	vek = temp;
 }
 
+void sortowanie::wybor()
+{
+	int mini;
+	for (int i = 0; i < vek.size(); i++)
+	{
+		mini = i;
+		for (int j = i + 1; j < vek.size(); j++)
+		{
+			if (vek[j] < vek[mini])
+			{
+				mini = j;
+			}
+		}
+		swap(vek[i], vek[mini]);
+	}
+}
+
 void sortowanie::wyswietl()
 {
 	for (int i = 0; i < 100; i++)

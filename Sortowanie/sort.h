@@ -14,6 +14,7 @@ public:
 	vector <int> vek;
 	void bubble();
 	void wstawianie();
+	void wybor();
 	void wyswietl();
 
 };

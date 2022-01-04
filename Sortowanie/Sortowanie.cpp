@@ -1,8 +1,12 @@
 ﻿#include <iostream>
+#include <fstream>
+#include <chrono>
 #include "sort.h"
 using namespace std;
 int main()
 {
+	ofstream ofs("times.txt");
+	
 
 	cout << "Nieposortowany zbior" << endl;
 		sortowanie zbior;
@@ -10,22 +14,43 @@ int main()
 		cout << endl << "Wybierz algorytm sortujacy" << endl;
 		cout << "1 - Sortowanie babelkowe" << endl;
 		cout << "2 - Sortowanie przez wstawianie" << endl;
+		cout << "3 - Sortowanie przez wybor" << endl;
 		int a = 0;
 		cin >> a;
 		if (a == 1)
 		{
 			cout << "sortowanie babelkowe" << endl;
+			
+			auto start = chrono::steady_clock::now();
 			zbior.bubble();
-			zbior.wyswietl();
+			auto end = chrono::steady_clock::now();
+			chrono::duration <double> sec = end - start;
+			cout << "---- Bub ----\n Time: " << sec.count() << "s\n";
+			
 		}
 		else if (a == 2)
 		{
-			cout << "sortowanie wstawianie" << endl;
+			auto start = chrono::steady_clock::now();
 			zbior.wstawianie();
-			zbior.wyswietl();
+			auto end = chrono::steady_clock::now();
+			chrono::duration <double> sec = end - start;
+			cout << "---- Wstawianie ----\n Time: " << sec.count() << "s\n";
+			
+		}
+		else if (a == 3)
+		{
+			cout << "sortowanie wyborowe" << endl;
+			auto start = chrono::steady_clock::now();
+			zbior.wybor();
+			auto end = chrono::steady_clock::now();
+			chrono::duration <double> sec = end - start;
+			cout << "---- Chs ----\n Time: " << sec.count() << "s\n";
+		
 		}
 		else
 		{
 			cout << "podano zla wartosc" << endl;
 		}
+
+		ofs.close();
 }
