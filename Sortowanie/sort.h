@@ -16,6 +16,6 @@ public:
 	void wstawianie();
 	void wybor();
 	void wyswietl();
-
+	void quickS(int left, int right);
 };
 

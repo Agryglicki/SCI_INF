@@ -64,6 +64,33 @@ void sortowanie::wybor()
 	}
 }
 
+void sortowanie::quickS(int left, int right)
+{
+	int i = (left + right) / 2;
+	int piwot = vek[i];
+	vek[i] = vek[right];
+	int j = left;
+	for (i = left; i < right; i++)
+	{
+		if (vek[i] < piwot)
+		{
+			swap(vek[i], vek[j]);
+			j++;
+		}
+	}
+	vek[right] = vek[j];
+	vek[j] = piwot;
+
+	if (left < j - 1)
+	{
+		quickS(left, j - 1);
+	}
+	if (j + 1 < right);
+	{
+		quickS(j + 1, right);
+	}
+}
+
 void sortowanie::wyswietl()
 {
 	for (int i = 0; i < 100; i++)

@@ -15,6 +15,7 @@ int main()
 		cout << "1 - Sortowanie babelkowe" << endl;
 		cout << "2 - Sortowanie przez wstawianie" << endl;
 		cout << "3 - Sortowanie przez wybor" << endl;
+		cout << "4 - Sortowanie Quick Sort" << endl;
 		int a = 0;
 		cin >> a;
 		if (a == 1)
@@ -44,13 +45,18 @@ int main()
 			zbior.wybor();
 			auto end = chrono::steady_clock::now();
 			chrono::duration <double> sec = end - start;
-			cout << "---- Chs ----\n Time: " << sec.count() << "s\n";
+			cout << "---- Wybor ----\n Time: " << sec.count() << "s\n";
 		
+		}
+		else if (a == 4)
+		{
+			int n = zbior.vek.size() - 1 ;
+			zbior.quickS(0, n);
+			zbior.wyswietl();
 		}
 		else
 		{
 			cout << "podano zla wartosc" << endl;
 		}
-
 		ofs.close();
 }
